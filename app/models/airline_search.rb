@@ -1,4 +1,5 @@
 class AirlineSearch
+    require 'text_formatter'
     attr_reader :from, :to, :departure_date
 
     def initialize(from, to, departure_date, airlines_data)
@@ -29,15 +30,10 @@ class AirlineSearch
     end
 
     def country_code(country_name)
-        if country_name.downcase.include?("any")
-            "any_airport"
-        else
-            code = country_name[/\(.*\)/]
-            code ? code.delete("()").upcase : ""
-        end
+        TextFormatter.new(country_name: country_name, date: nil, duration: nil).get_country_code
     end
 
     def date_format(date)
-        date ? date.gsub("/", "-") : ""
+        TextFormatter.new(country_name: nil, date: date, duration: nil).date_formatter
     end
 end

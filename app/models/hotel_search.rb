@@ -1,4 +1,6 @@
 class HotelSearch
+    require 'text_formatter'
+
     attr_reader :to, :arrival_date, :duration, :hotel_data
 
     def initialize(to, arrival_date, duration, hotel_data)
@@ -25,15 +27,14 @@ class HotelSearch
     end
 
     def country_code(country_name)
-        code = country_name[/\(.*\)/]
-        code ? code.delete("()").upcase : ""
+        TextFormatter.new(country_name: country_name, date: nil, duration: nil).get_country_code
     end
 
     def date_format(date)
-        date ? date.gsub("/", "-") : ""
+        TextFormatter.new(country_name: nil, date: date, duration: nil).date_formatter
     end
 
     def count_nights(duration)
-        duration.to_s.delete(" nights").to_i
+        TextFormatter.new(country_name: nil, date: nil, duration: duration).duration_formatter
     end
 end
