@@ -43,6 +43,9 @@ Here are some example test cases
 
 ##### Expected result  
  * Flight 7 and Hotel 6
+ 
+ Models folder has relevant code.
+ spec/models has the corresponding spec code.
 
 RSpec Execution
 ----------------
