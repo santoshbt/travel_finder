@@ -44,6 +44,9 @@ Here are some example test cases
 ##### Expected result  
  * Flight 7 and Hotel 6
 
+app/models has relevant code for travel finder.
+spec/lib/models has the corresponding rspec.
+
 RSpec Execution
 ----------------
 bundle exec rspec spec -f d
