@@ -11,14 +11,14 @@ RSpec.describe TextFormatter, :type => :model do
 
         let(:country_name_1) { "Any Airport" }
 
-        it 'returns `any` if the country name is `Any Airport`' do
+        it 'returns `any_airport` if the country name is `Any Airport`' do
             json_output = described_class.new(country_name: country_name_1, date: nil, duration: nil).get_country_code
             expect(json_output).to eq("any_airport")
         end
 
         let(:country_name_2) { "Any London Airport" }
 
-        it 'returns `any` if the country name is `Any London Airport`' do
+        it 'returns `any_airport` if the country name is `Any London Airport`' do
             json_output = described_class.new(country_name: country_name_2, date: nil, duration: nil).get_country_code
             expect(json_output).to eq("any_airport")
         end
@@ -32,7 +32,7 @@ RSpec.describe TextFormatter, :type => :model do
             expect(json_output).to eq("2023-06-07")
         end
 
-        it 'returns empty if date is nil' do
+        it 'returns empty string if date is nil' do
             json_output = described_class.new(country_name: nil, date: nil, duration: nil).date_formatter
             expect(json_output).to eq("")
         end
