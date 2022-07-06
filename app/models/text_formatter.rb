@@ -8,8 +8,8 @@ class TextFormatter
     end
 
     def get_country_code
-        unless @country_name.nil?
-            if @country_name.downcase.include?("any")
+        unless country_name.nil?
+            if country_name.downcase.include?("any")
                 "any_airport"
             else
                 code = @country_name[/\(.*\)/]
@@ -19,11 +19,11 @@ class TextFormatter
     end
 
     def date_formatter
-        @date ? @date.gsub("/", "-") : ""
+        date ? @date.gsub("/", "-") : ""
     end
 
     def duration_formatter
-        @duration ? @duration.to_s.delete(" nights").to_i : 0
+        duration ? duration.to_s.delete(" nights").to_i : 0
     end
 
 end

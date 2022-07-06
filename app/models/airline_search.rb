@@ -10,9 +10,9 @@ class AirlineSearch
     end
 
     def search
-        dep_date = date_format(@departure_date)
-        source = country_code(@from)
-        destn = country_code(@to)
+        dep_date = date_format(departure_date)
+        source = country_code(from)
+        destn = country_code(to)
         get_airlines(dep_date, source, destn, @airlines_data)
     end
 

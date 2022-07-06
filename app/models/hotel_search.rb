@@ -11,15 +11,15 @@ class HotelSearch
     end
 
     def search
-       dep_date = date_format(@arrival_date)
-       destn = country_code(@to)
-       duration = count_nights(@duration)
-       get_hotels(dep_date, destn, duration, @hotel_data)
+       dep_date = date_format(arrival_date)
+       destn = country_code(to)
+       no_of_nights = count_nights(@duration)
+       get_hotels(dep_date, destn, no_of_nights, hotel_data)
     end
 
-    def get_hotels(date, destination, duration, hotel_data)
+    def get_hotels(date, destination, no_of_nights, hotel_data)
         results = hotel_data.select {|hotel|
-            hotel["arrival_date"] == date && hotel["nights"] == duration && hotel["local_airports"].include?(destination)
+            hotel["arrival_date"] == date && hotel["nights"] == no_of_nights && hotel["local_airports"].include?(destination)
         }
 
         hotel = results.length > 1 ? results.sort_by {|x| x["price_per_night"]}.first : results.first
